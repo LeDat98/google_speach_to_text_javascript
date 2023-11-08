@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "norse-antenna-378303",
+  "private_key_id": "152d4051d7dd1f6d3be2149a605584c35bb76130",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDiNN0oQ1NtNP3t\nEbT7cYs727ykIy3dDUjZHFpvq21tJwpI/f//IUHSLQxOxhKR/7/5ghJZ8HNvC0a6\nu4VjBJtW72hEaGQ37zpHHT3lpminxcKL4SWTjv8o71TD4t5LYnhlHJWe5ralnHS+\nf0FU9XsAUlM5zoapgTfIAV32uLPFs/fW9W+j4267QbGWzhqD/8kuIwtGtcMbHT3w\nAwmmhpmYpk8tHhBq+kgc1YGnZvBSbnaJhBAXvBkMGGFY/Y/9e8hJ8dJ+t3PziiQn\nZ9eYXOUKZmHI4HP1mwpqzNQ5Hg7zz9SO7ma/jgxwVroXt3codpx+M9oJpxjbWyCf\nGRqTQcWbAgMBAAECggEAGNeavM6Ssu5G6hTaaLgnhQNfdtyGL5NDP39lpIM8bpMD\nBiZ0SXNAOfId5T4g0U03qrx7gh/DYvE8wJ/SHksQjujr7Sypv5rTg6EqfbYGIvwM\n9DUIXhQuNt38fnwZKEjq1UU2XqUSb02nZI8FKxdqfWE30qQOaz8i/na9Ta3V0GL7\n0TKixxdR1lWlEYCKvQf3jUP9VG+BFnOkqbL+iTHy3DMhi+5o4HMmdmcqT+to0NYo\ngV3xAiVqTEI3c6W1TN1S/ZIqCqmpqvsqlukvdi3O7apEN4sKFdBBRNFYzLoc/zOW\nfy9JiLuY0ZW+7tdZMUMT/Bv7QBXincrS6nswehy1wQKBgQDy6NGGauVi9yZ6J9Vn\nxtqysdKQG/YBr9WGgFI+Dobu5yJMdjzCC3NYYV19L6PAJqYBlxI3Xwji++o58k3x\n8omksT/EXtZASfYpa2QzL6jvhBq6/6xMqR1Rg2w5VERTOtMGYi9++GZ7bKGtQhcR\nmN1WLpvsLQw8byoCJ6FO5ybVnwKBgQDuZZyDe2hW+HteQehsQb5kXGnnR+K/mEKs\nbvGqDrvMty7qXwz0r4g1TAJ5EioS/vSb8n/9VJg16KgwTFLqTjIq/JQw89UYv+Ky\nSj/uCQBqim0pVHhK7pns5A82tMC59/J0KI5pV55Dbr+/8A5TnNIXxLv+sfoW0HHI\nDzNNtnL2hQKBgEV9DNNjKRPSmBNB6e6yGEYeUJohJZL99htwAhb2mOsm+8zb1i28\nkNaro874HeQOKlcyHGfyq9wjLLI++sVIGNAgVJmcd7YUcnMO4a8y5yT9qZftJCEa\nD+UNr5wG2zTkExI0bFnqPYb5YJbr3SWPkWHiG4DIskNnmaDcLW0g+x8JAoGACK3m\nXtsVV2VAiJP5tEdIeTrsGCGD3dnbQ4/eeISEzdU1fg7r19S0LsyPonzIz1w855iS\nlFSKHhxUUz3UHvet1+bONmIKNhZ2WGtfnHjzbO2RP9n1bzT0oa1D6If4JE0kpJn9\nZVRtTKMxk/lXbC/fbkIZXhJ4um/oVJJJGeE0mkkCgYEAs6+EpeLRxdhCJZLPtsCn\n9mqC2dgdrVocWnjz/7OjbYUASyhgyIdYjWSMohFbysA+4QIY6XP3WDrc5aZeRQq1\nktfdY+qFq/0sBe+Gn2uV5b9pSmHHV9w7WXL523jaPUbSakAMq63RdPy65bLyF/PX\nR2r2Ftd1K1HN5/F2ATLMidk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "jsl-945@norse-antenna-378303.iam.gserviceaccount.com",
+  "client_id": "108971239605293791816",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jsl-945%40norse-antenna-378303.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
