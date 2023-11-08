@@ -71,7 +71,7 @@ async function transcribeAudio(audioBlob) {
     const requestData = {
         config: {
             encoding: 'WEBM_OPUS',
-            languageCode: 'ja-JP',
+            languageCode: 'vi-VN',
         },
         audio: {
             content: audioBase64
