@@ -1,16 +1,58 @@
 let mediaRecorder;
 let audioChunks = [];
+let isRecording = false;
 
-const startButton = document.getElementById("startRecord");
-const stopButton = document.getElementById("stopRecord");
+const toggleButton = document.getElementById("toggleRecord");
+const microIcon = document.getElementById("microIcon");
 const resultText = document.getElementById("resultText");
+// const audioPlayback = document.getElementById("audioPlayback");
 let apiResponseTextArea;
+
+const SPEECH_API_URL = 'https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyBYhlS5IWvCqKDDiATXo8u6jWLzArj9kXU';
 
 window.onload = function() {
     apiResponseTextArea = document.getElementById("apiResponse");
+    audioPlayback = document.getElementById("audioPlayback");
 };
 
-const SPEECH_API_URL = 'https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyBYhlS5IWvCqKDDiATXo8u6jWLzArj9kXU';
+toggleButton.onclick = function() {
+    if (!isRecording) {
+        startRecording();
+    } else {
+        stopRecording();
+    }
+};
+
+function startRecording() {
+    const mediaConstraints = { audio: true };
+    navigator.mediaDevices.getUserMedia(mediaConstraints).then(stream => {
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+        mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+        };
+        mediaRecorder.onstop = uploadAndTranscribe;
+        mediaRecorder.start();
+        microIcon.src = "/static/js/on-air.png";
+    }).catch(error => {
+        console.error("Error accessing the microphone:", error);
+    });
+    isRecording = true;
+}
+
+function stopRecording() {
+    mediaRecorder.stop();
+    microIcon.src = "/static/js/mute.png";
+    isRecording = false;
+}
+
+async function uploadAndTranscribe() {
+    const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+    console.log("Audio Blob - Size:", audioBlob.size, ", Type:", audioBlob.type);
+    audioPlayback.src = URL.createObjectURL(audioBlob);
+    const transcription = await transcribeAudio(audioBlob);
+    resultText.value = transcription;
+}
 
 function arrayBufferToBase64(buffer) {
     let binary = '';
@@ -22,43 +64,6 @@ function arrayBufferToBase64(buffer) {
     return btoa(binary);
 }
 
-startButton.onclick = function() {
-    const mediaConstraints = { audio: true };
-
-    navigator.mediaDevices.getUserMedia(mediaConstraints).then(stream => {
-        mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.ondataavailable = event => {
-            audioChunks.push(event.data);
-        };
-
-        mediaRecorder.onstop = async () => {
-            const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
-            
-            // Log size and type of the audioBlob
-            console.log("Audio Blob - Size:", audioBlob.size, ", Type:", audioBlob.type);
-            
-            // Provide the audio for playback
-            document.getElementById("audioPlayback").src = URL.createObjectURL(audioBlob);
-
-            const transcription = await transcribeAudio(audioBlob);
-            resultText.value = transcription;
-        };
-
-        mediaRecorder.start();
-        startButton.disabled = true;
-        stopButton.disabled = false;
-    }).catch(error => {
-        console.error("Error accessing the microphone:", error);
-    });
-};
-
-
-stopButton.onclick = function() {
-    mediaRecorder.stop();
-    startButton.disabled = false;
-    stopButton.disabled = true;
-};
-
 async function transcribeAudio(audioBlob) {
     const audioData = await audioBlob.arrayBuffer();
     const audioBase64 = arrayBufferToBase64(audioData);
@@ -66,7 +71,6 @@ async function transcribeAudio(audioBlob) {
     const requestData = {
         config: {
             encoding: 'WEBM_OPUS',
-            
             languageCode: 'ja-JP',
         },
         audio: {
@@ -74,7 +78,6 @@ async function transcribeAudio(audioBlob) {
         }
     };
 
-    // Log the requestData before sending it
     console.log("Sending request data:", JSON.stringify(requestData));
 
     const response = await fetch(SPEECH_API_URL, {
@@ -86,12 +89,8 @@ async function transcribeAudio(audioBlob) {
     });
 
     const data = await response.json();
-
-    // Log the full response from the API
     console.log("Received response:", data);
-    // Update the textarea with the API response
     apiResponseTextArea.value = JSON.stringify(data, null, 2);
 
     return data.results ? data.results[0].alternatives[0].transcript : 'Không nhận diện được nội dung từ âm thanh.';
-
 }

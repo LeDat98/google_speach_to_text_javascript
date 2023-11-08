@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech to Text Demo</title>
 </head>
-
 <body>
     <h1>音声を認識する</h1>
-    <button id="startRecord">録音開始</button>
-    <button id="stopRecord" disabled>録音停止</button>
+    <button id="toggleRecord"><img id="microIcon" src="{{ url_for('static', filename='js/mute.png') }}"></button>
     <h2>Kết quả:</h2>
     <textarea id="resultText" rows="4" cols="50" readonly></textarea>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
     <audio id="audioPlayback" controls></audio>
     <h2>Kết quả từ API:</h2>
     <textarea id="apiResponse" rows="10" cols="50" readonly></textarea>
-
 </body>
-
 </html>
