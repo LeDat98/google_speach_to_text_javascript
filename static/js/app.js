@@ -8,7 +8,7 @@ const resultText = document.getElementById("resultText");
 // const audioPlayback = document.getElementById("audioPlayback");
 let apiResponseTextArea;
 
-const SPEECH_API_URL = 'https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyBYhlS5IWvCqKDDiATXo8u6jWLzArj9kXU';
+const SPEECH_API_URL = 'https://speech.googleapis.com/v1/speech:recognize?key=';
 
 window.onload = function() {
     apiResponseTextArea = document.getElementById("apiResponse");
